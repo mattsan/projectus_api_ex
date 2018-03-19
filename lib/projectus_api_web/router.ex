@@ -5,7 +5,9 @@ defmodule ProjectusApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", ProjectusApiWeb do
+  scope "/", ProjectusApiWeb do
     pipe_through :api
+
+    resources "/tasks", TaskController, except: [:new, :edit]
   end
 end
