@@ -35,6 +35,8 @@ defmodule ProjectusApiWeb.Endpoint do
     key: "_projectus_api_key",
     signing_salt: "Xr662pQd"
 
+  plug CORSPlug
+
   plug ProjectusApiWeb.Router
 
   @doc """
