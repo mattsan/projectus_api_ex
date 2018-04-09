@@ -6,9 +6,9 @@ defmodule ProjectusApi.MissionsTest do
   describe "tasks" do
     alias ProjectusApi.Missions.Task
 
-    @valid_attrs %{description: "some description", title: "some title"}
-    @update_attrs %{description: "some updated description", title: "some updated title"}
-    @invalid_attrs %{description: nil, title: nil}
+    @valid_attrs %{description: "some description", title: "some title", status: 0}
+    @update_attrs %{description: "some updated description", title: "some updated title", status: 0}
+    @invalid_attrs %{description: nil, title: nil, status: nil}
 
     def task_fixture(attrs \\ %{}) do
       {:ok, task} =

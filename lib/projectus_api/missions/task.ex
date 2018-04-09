@@ -6,6 +6,7 @@ defmodule ProjectusApi.Missions.Task do
   schema "tasks" do
     field :description, :string
     field :title, :string
+    field :status, :integer
 
     timestamps()
   end
@@ -13,7 +14,7 @@ defmodule ProjectusApi.Missions.Task do
   @doc false
   def changeset(task, attrs) do
     task
-    |> cast(attrs, [:title, :description])
+    |> cast(attrs, [:title, :description, :status])
     |> validate_required([:title, :description])
   end
 end

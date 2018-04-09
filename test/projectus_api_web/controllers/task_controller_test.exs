@@ -4,9 +4,9 @@ defmodule ProjectusApiWeb.TaskControllerTest do
   alias ProjectusApi.Missions
   alias ProjectusApi.Missions.Task
 
-  @create_attrs %{description: "some description", title: "some title"}
-  @update_attrs %{description: "some updated description", title: "some updated title"}
-  @invalid_attrs %{description: nil, title: nil}
+  @create_attrs %{description: "some description", title: "some title", status: 0}
+  @update_attrs %{description: "some updated description", title: "some updated title", status: 0}
+  @invalid_attrs %{description: nil, title: nil, status: nil}
 
   def fixture(:task) do
     {:ok, task} = Missions.create_task(@create_attrs)
@@ -33,7 +33,8 @@ defmodule ProjectusApiWeb.TaskControllerTest do
       assert json_response(conn, 200) == %{
         "id" => id,
         "description" => "some description",
-        "title" => "some title"}
+        "title" => "some title",
+        "status" => "todo"}
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -53,7 +54,8 @@ defmodule ProjectusApiWeb.TaskControllerTest do
       assert json_response(conn, 200) == %{
         "id" => id,
         "description" => "some updated description",
-        "title" => "some updated title"}
+        "title" => "some updated title",
+        "status" => "todo"}
     end
 
     test "renders errors when data is invalid", %{conn: conn, task: task} do

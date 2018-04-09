@@ -13,6 +13,11 @@ defmodule ProjectusApiWeb.TaskView do
   def render("task.json", %{task: task}) do
     %{id: task.id,
       title: task.title,
-      description: task.description}
+      description: task.description,
+      status: status_to_string(task.status)}
   end
+
+  def status_to_string(0), do: "todo"
+  def status_to_string(1), do: "doing"
+  def status_to_string(2), do: "done"
 end
